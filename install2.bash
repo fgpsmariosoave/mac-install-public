@@ -62,7 +62,7 @@ install_package()
     file_ext="${download_filename##*.}"
     if [[ $file_ext == "dmg" ]]  ; then
         #set -x
-        attach_info="$(hdiutil attach "${download_folder}/${app_dl_folder}/${download_filename}" | tail -n 1)"
+        attach_info="$(yes qy | hdiutil attach "${download_folder}/${app_dl_folder}/${download_filename}" | tail -n 1)"
         #set +x
         echo "Attach info: $attach_info"
         device_path="${attach_info%% *}"
